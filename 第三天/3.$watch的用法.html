@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <p>{{ counter }}</p> -->
+        <!-- <button v-on:click="counter++">点我</button> -->
+        <input type="text" v-model="fastName">
+        <input type="text" v-model="lastName">
+
+        {{ fullName }}
+    </div>
+</body>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            // counter:0
+            fastName:'宋建业',
+            lastName:'sjy',
+            fullName:'hhhhhhhhh'
+        },
+        methods:{},
+        watch:{
+        fastName:function(newval,oldval){
+            this.fullName = this.fastName + this.lastName
+        },
+        lastName:function(newval,oldval){
+            this.fullName = this.fastName + this.lastName
+        }
+    }
+    })
+    // vm.$watch(参数1，参数2，参数3)
+    // 参数2 callback回调函数
+    // 参数3 选择选项
+    vm.$watch('counter',function (fastName,lastName) {
+        // alert(fastName+lastName)
+        console.log(fastName,lastName)
+    })
+
+
+</script>
+</html>
